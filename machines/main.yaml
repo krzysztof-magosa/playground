@@ -1,0 +1,23 @@
+---
+# File: main.yaml
+
+- nick: playground
+  name: playground
+  memory: 1024
+  box: bento/centos-7.1
+  networks:
+    - ip: 192.168.56.150
+      netmask: 255.255.255.0
+  provision:
+    - type: file
+      source: "~/.ssh/insecure/id_rsa"
+      destination: "~/.ssh/id_rsa"
+      run: always
+    - type: file
+      source: "~/.ssh/insecure/id_rsa.pub"
+      destination: "~/.ssh/id_rsa.pub"
+      run: always
+  authorized_keys:
+    - type: file
+      path: ~/.ssh/id_rsa.pub
+
