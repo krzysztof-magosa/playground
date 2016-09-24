@@ -1,23 +1,22 @@
 ---
-# File: main.yaml
+# File: centos-7.2.yaml
 
-- nick: playground
-  name: playground
+- nick: centos-7.2
+  name: centos-7.2
   memory: 1024
-  box: bento/centos-7.1
+  box: bento/centos-7.2
   networks:
-    - ip: 192.168.56.150
+    - ip: 192.168.56.72
       netmask: 255.255.255.0
   provision:
     - type: file
-      source: "~/.ssh/insecure/id_rsa"
+      source: "~/.ssh/id_rsa"
       destination: "~/.ssh/id_rsa"
       run: always
     - type: file
-      source: "~/.ssh/insecure/id_rsa.pub"
+      source: "~/.ssh/id_rsa.pub"
       destination: "~/.ssh/id_rsa.pub"
       run: always
   authorized_keys:
     - type: file
       path: ~/.ssh/id_rsa.pub
-

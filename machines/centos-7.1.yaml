@@ -1,0 +1,22 @@
+---
+# File: centos-7.1.yaml
+
+- nick: centos-7.1
+  name: centos-7.1
+  memory: 1024
+  box: bento/centos-7.1
+  networks:
+    - ip: 192.168.56.71
+      netmask: 255.255.255.0
+  provision:
+    - type: file
+      source: "~/.ssh/id_rsa"
+      destination: "~/.ssh/id_rsa"
+      run: always
+    - type: file
+      source: "~/.ssh/id_rsa.pub"
+      destination: "~/.ssh/id_rsa.pub"
+      run: always
+  authorized_keys:
+    - type: file
+      path: ~/.ssh/id_rsa.pub
